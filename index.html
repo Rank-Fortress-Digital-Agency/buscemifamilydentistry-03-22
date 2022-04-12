@@ -1,329 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      The benefits of regular dental checkups for kids | Buscemi Family
+      Dentistry
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a
+            href="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website"
+            >Main</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/buscemifamilydentistry?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/family-dentistry-bloomfield-hi/family-dentistry-bloomfield-hills-michigan"
+            >Buscemi Family Dentistry</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>The benefits of regular dental checkups for kids</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>The benefits of regular dental checkups for kids | Buscemi Family Dentistry</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/buscemifamilydentistry?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/family-dentistry-bloomfield-hi/family-dentistry-bloomfield-hills-michigan">Buscemi Family Dentistry</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>The benefits of regular dental checkups for kids</h1>
-      </section>
-
-      <section>
-          <p>As a child, going to the dentist was one of my least favorite activities. As I got older and realized how important it is for your teeth to be in good shape, I started going more often. Now that I’m an adult with children of my own, I realize how critical dental care is for them as well. Children must start going to the dentist at a young age and continue to go regularly, even if they don’t have any cavities.</p>
-          <p>There are many reasons why children need to see the dentist. One of the most important is that early dental care can help prevent cavities. Children are more susceptible to cavities than adults because their teeth are still growing and their enamel is not as strong. The dentist can help monitor your child’s teeth and catch any problems early on, which can prevent them from getting worse.</p>
-          <p>Another important reason to take your child to the dentist is to ensure that they are developing good oral hygiene habits. The dentist can show your child how to properly brush their teeth and floss, which will help them maintain good oral health as they get older.</p>
-          <p>If you have a child who is afraid of the dentist, don’t worry. The dentist can help ease their fears and make their visit a positive experience. By taking your child to the dentist regularly, you are setting them up for a lifetime of healthy teeth.</p>
+        <section>
+          <p>
+            As a child, going to the dentist was one of my least favorite
+            activities. As I got older and realized how important it is for your
+            teeth to be in good shape, I started going more often. Now that I’m
+            an adult with children of my own, I realize how critical dental care
+            is for them as well. Children must start going to the dentist at a
+            young age and continue to go regularly, even if they don’t have any
+            cavities.
+          </p>
+          <p>
+            There are many reasons why children need to see the dentist. One of
+            the most important is that early dental care can help prevent
+            cavities. Children are more susceptible to cavities than adults
+            because their teeth are still growing and their enamel is not as
+            strong. The dentist can help monitor your child’s teeth and catch
+            any problems early on, which can prevent them from getting worse.
+          </p>
+          <p>
+            Another important reason to take your child to the dentist is to
+            ensure that they are developing good oral hygiene habits. The
+            dentist can show your child how to properly brush their teeth and
+            floss, which will help them maintain good oral health as they get
+            older.
+          </p>
+          <p>
+            If you have a child who is afraid of the dentist, don’t worry. The
+            dentist can help ease their fears and make their visit a positive
+            experience. By taking your child to the dentist regularly, you are
+            setting them up for a lifetime of healthy teeth.
+          </p>
           <div>
-            <iframe width="100%" height="500" src="https://www.youtube.com/embed/boAv6LBiiz0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/boAv6LBiiz0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <a class="button-link"
-                href="https://buscemifamilydentistry.com/the-importance-of-taking-your-child-to-the-dentist/">Read Post</a>
-      </section>
+          <a
+            class="button-link"
+            href="https://buscemifamilydentistry.com/the-importance-of-taking-your-child-to-the-dentist/"
+            >Read Post</a
+          >
+        </section>
 
-      <section>
+        <section>
           <div class="two-col">
-              <div>
-                  <img style="height: 460px" src="https://lh3.googleusercontent.com/geougc/AF1QipOLghbFCKWtKEKa9ZeC0CxcUB9B-xx8N6dwICel=h400-no" alt="Family Dentistry Bloomfield Hills, MI">
-              </div>
-              <div>
-                  <h2>The Importance of Oral Health</h2>
-                  <p>Most people don’t realize that oral health is one of the most important parts of a healthy lifestyle. Many studies show how tooth decay and gum disease can lead to other serious ailments like heart disease and diabetes. That’s why it’s so important to make oral health a priority and keep your teeth and gums healthy.</p>
-                  <p>There are many things you can do to maintain your oral health, including brushing and flossing regularly, eating a healthy diet, and visiting your dentist for <a href="https://buscemifamilydentistry.com/the-benefits-of-regular-dental-checkups-for-kids/">regular checkups</a>. Brushing and flossing are especially important, as they help remove plaque and bacteria from your teeth and gums. Plaque is a sticky film that forms on the teeth over time, and if it isn’t removed regularly, it can lead to tooth decay. Bacteria in the mouth can also cause gum disease, which can lead to tooth loss if not treated.</p>
-              </div>
+            <div>
+              <img
+                style="height: 460px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipOLghbFCKWtKEKa9ZeC0CxcUB9B-xx8N6dwICel=h400-no"
+                alt="Family Dentistry Bloomfield Hills, MI"
+              />
+            </div>
+            <div>
+              <h2>The Importance of Oral Health</h2>
+              <p>
+                Most people don’t realize that oral health is one of the most
+                important parts of a healthy lifestyle. Many studies show how
+                tooth decay and gum disease can lead to other serious ailments
+                like heart disease and diabetes. That’s why it’s so important to
+                make oral health a priority and keep your teeth and gums
+                healthy.
+              </p>
+              <p>
+                There are many things you can do to maintain your oral health,
+                including brushing and flossing regularly, eating a healthy
+                diet, and visiting your dentist for
+                <a
+                  href="https://buscemifamilydentistry.com/the-benefits-of-regular-dental-checkups-for-kids/"
+                  >regular checkups</a
+                >. Brushing and flossing are especially important, as they help
+                remove plaque and bacteria from your teeth and gums. Plaque is a
+                sticky film that forms on the teeth over time, and if it isn’t
+                removed regularly, it can lead to tooth decay. Bacteria in the
+                mouth can also cause gum disease, which can lead to tooth loss
+                if not treated.
+              </p>
+            </div>
           </div>
-      </section>
+        </section>
 
-      <section>
+        <section>
           <h2>Prevention is Key</h2>
-          <p>One way to help combat tooth decay is by taking your child to the dentist for regular checkups and cleanings. During these appointments, the dentist will be able to spot any early signs of tooth decay and recommend treatment. Additionally, you can help prevent tooth decay by teaching your child about good oral hygiene habits.</p>
-          <p>Good oral hygiene habits include brushing your teeth at least twice a day and flossing once a day. It’s also important to limit sugary snacks and drinks, which can cause tooth decay. Teach your child to brush their teeth for two minutes after eating anything sugary.</p>
-          <p>If your child does develop tooth decay, don’t panic. Tooth decay is a very common problem, and it can usually be treated with simple procedures like fillings or sealants. By following the dentist’s recommendations and practicing good oral hygiene habits, you can help your child maintain healthy teeth and gums for life.</p>
-          <a class="button-link"
-                href="https://buscemifamilydentistry.com/">Visit Us</a>
-      </section>
+          <p>
+            One way to help combat tooth decay is by taking your child to the
+            dentist for regular checkups and cleanings. During these
+            appointments, the dentist will be able to spot any early signs of
+            tooth decay and recommend treatment. Additionally, you can help
+            prevent tooth decay by teaching your child about good oral hygiene
+            habits.
+          </p>
+          <p>
+            Good oral hygiene habits include brushing your teeth at least twice
+            a day and flossing once a day. It’s also important to limit sugary
+            snacks and drinks, which can cause tooth decay. Teach your child to
+            brush their teeth for two minutes after eating anything sugary.
+          </p>
+          <p>
+            If your child does develop tooth decay, don’t panic. Tooth decay is
+            a very common problem, and it can usually be treated with simple
+            procedures like fillings or sealants. By following the dentist’s
+            recommendations and practicing good oral hygiene habits, you can
+            help your child maintain healthy teeth and gums for life.
+          </p>
+          <a class="button-link" href="https://buscemifamilydentistry.com/"
+            >Visit Us</a
+          >
+        </section>
 
-      <section>
+        <section>
           <div class="two-col">
-              <div>
-                  <h2>Early Detection</h2>
-                  <p>Another benefit of taking your child to the dentist is that any problems with their teeth can be detected early on, which can save them a lot of pain and money in the long run. If your child’s dentist spots a potential problem with their teeth, they can recommend the appropriate treatment plan to fix it. This can save your child from having to undergo more serious dental procedures down the road.</p>
-                  <p>Another benefit of taking your child to the dentist is that any problems with their teeth can be detected early on, which can save them a lot of pain and money in the long run. If your child’s dentist spots a potential problem with their teeth, they can recommend the appropriate treatment plan to fix it. This can save your child from having to undergo more serious dental procedures down the road.</p>
-              </div>
-              <div>
-                  <img style="height: 450px" src="https://lh3.googleusercontent.com/geougc/AF1QipO5E2oamuzPDqW3eVyCNO6gNw4qMxdyw_eFQtiP=h400-no" alt="Family Dentistry Bloomfield Hills, MI">
-              </div>
+            <div>
+              <h2>Early Detection</h2>
+              <p>
+                Another benefit of taking your child to the dentist is that any
+                problems with their teeth can be detected early on, which can
+                save them a lot of pain and money in the long run. If your
+                child’s dentist spots a potential problem with their teeth, they
+                can recommend the appropriate treatment plan to fix it. This can
+                save your child from having to undergo more serious dental
+                procedures down the road.
+              </p>
+              <p>
+                Another benefit of taking your child to the dentist is that any
+                problems with their teeth can be detected early on, which can
+                save them a lot of pain and money in the long run. If your
+                child’s dentist spots a potential problem with their teeth, they
+                can recommend the appropriate treatment plan to fix it. This can
+                save your child from having to undergo more serious dental
+                procedures down the road.
+              </p>
+            </div>
+            <div>
+              <img
+                style="height: 450px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipO5E2oamuzPDqW3eVyCNO6gNw4qMxdyw_eFQtiP=h400-no"
+                alt="Family Dentistry Bloomfield Hills, MI"
+              />
+            </div>
           </div>
-          <p>One common dental problem that can be caught early is tooth decay. Tooth decay is caused by bacteria that feed on sugar in the mouth. The bacteria produce acids that attack tooth enamel, causing it to break down and form cavities. If left untreated, tooth decay can lead to serious oral health problems such as gum disease and even tooth loss.</p>
-      </section>
+          <p>
+            One common dental problem that can be caught early is tooth decay.
+            Tooth decay is caused by bacteria that feed on sugar in the mouth.
+            The bacteria produce acids that attack tooth enamel, causing it to
+            break down and form cavities. If left untreated, tooth decay can
+            lead to serious oral health problems such as gum disease and even
+            tooth loss.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Building Good Habits</h2>
-          <p>By taking your child to the dentist at a young age, you are helping to instill good oral hygiene habits that will last a lifetime. Dentists recommend that you take your child in for their first check-up by the time they are one year old. This visit will help the dentist assess your child’s oral health and develop a tooth-care routine that is appropriate for them. Regular dental visits are important for children, as they can help identify and prevent any problems with teeth and gums. Early detection of cavities or gum disease can lead to more effective treatment.</p>
-      </section>
+          <p>
+            By taking your child to the dentist at a young age, you are helping
+            to instill good oral hygiene habits that will last a lifetime.
+            Dentists recommend that you take your child in for their first
+            check-up by the time they are one year old. This visit will help the
+            dentist assess your child’s oral health and develop a tooth-care
+            routine that is appropriate for them. Regular dental visits are
+            important for children, as they can help identify and prevent any
+            problems with teeth and gums. Early detection of cavities or gum
+            disease can lead to more effective treatment.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Confidence</h2>
-          <p>A visit to the dentist can help boost your child’s confidence, as they will learn that visiting the dentist is not something to be afraid of. A positive experience at the dentist can help your child feel more comfortable when visiting in the future.</p>
-          <p>A family dentist is specially trained to care for children’s teeth and will make sure your child has a positive experience at the dentist. They will explain each step of the procedure and will work with your child to ensure they are comfortable.</p>
-      </section>
+          <p>
+            A visit to the dentist can help boost your child’s confidence, as
+            they will learn that visiting the dentist is not something to be
+            afraid of. A positive experience at the dentist can help your child
+            feel more comfortable when visiting in the future.
+          </p>
+          <p>
+            A family dentist is specially trained to care for children’s teeth
+            and will make sure your child has a positive experience at the
+            dentist. They will explain each step of the procedure and will work
+            with your child to ensure they are comfortable.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Bonding Time</h2>
-          <p>Taking your child to the dentist can also be a great opportunity for bonding time and to discuss any concerns they may have about their teeth. Dentists are used to working with kids and can make the experience fun for them. You can also ask the dentist any questions you have about your child’s oral health.</p>
-          <p>It’s important to bring your child in for regular dental visits, even if they don’t have any cavities. This will help the dentist keep track of their oral health and catch any problems early on. Early detection can help prevent more serious problems from developing.</p>
-      </section>
+          <p>
+            Taking your child to the dentist can also be a great opportunity for
+            bonding time and to discuss any concerns they may have about their
+            teeth. Dentists are used to working with kids and can make the
+            experience fun for them. You can also ask the dentist any questions
+            you have about your child’s oral health.
+          </p>
+          <p>
+            It’s important to bring your child in for regular dental visits,
+            even if they don’t have any cavities. This will help the dentist
+            keep track of their oral health and catch any problems early on.
+            Early detection can help prevent more serious problems from
+            developing.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Education</h2>
-          <p>A visit to the dentist is also a great opportunity for your child to learn about proper oral care and how to keep their teeth healthy. Dentists can teach your child how to brush their teeth properly, and they may also recommend fluoride toothpaste and mouthwash. It’s important to make sure that your child is brushing their teeth for two minutes at least twice a day, and that they are flossing once a day.</p>
-          <p>Dentists can also help you keep track of your child’s oral health by providing regular checkups. During these checkups, the dentist will look for signs of cavities and other problems. If any issues are found, the dentist can provide treatment options. By taking care of your child’s oral health, you can help them maintain healthy teeth for life.</p>
-          <p>If you’re looking for a dental practice that caters to children, <a href="https://buscemifamilydentistry.com/about-us/">Buscemi Family Dentistry</a> is a great option. Located in <a href="https://buscemifamilydentistry.com/">Bloomfield Hills</a>, Michigan, Buscemi Family Dentistry provides quality dental care for patients of all ages. They offer a variety of services, including <a href="https://buscemifamilydentistry.com/teeth-whitening/">teeth whitening</a>, braces, and dental implants. Plus, they have a kid-friendly office that is sure to make your child feel comfortable.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=13089403868963880917">Find Us Here!</a>
-      </section>
+          <p>
+            A visit to the dentist is also a great opportunity for your child to
+            learn about proper oral care and how to keep their teeth healthy.
+            Dentists can teach your child how to brush their teeth properly, and
+            they may also recommend fluoride toothpaste and mouthwash. It’s
+            important to make sure that your child is brushing their teeth for
+            two minutes at least twice a day, and that they are flossing once a
+            day.
+          </p>
+          <p>
+            Dentists can also help you keep track of your child’s oral health by
+            providing regular checkups. During these checkups, the dentist will
+            look for signs of cavities and other problems. If any issues are
+            found, the dentist can provide treatment options. By taking care of
+            your child’s oral health, you can help them maintain healthy teeth
+            for life.
+          </p>
+          <p>
+            If you’re looking for a dental practice that caters to children,
+            <a href="https://buscemifamilydentistry.com/about-us/"
+              >Buscemi Family Dentistry</a
+            >
+            is a great option. Located in
+            <a href="https://buscemifamilydentistry.com/">Bloomfield Hills</a>,
+            Michigan, Buscemi Family Dentistry provides quality dental care for
+            patients of all ages. They offer a variety of services, including
+            <a href="https://buscemifamilydentistry.com/teeth-whitening/"
+              >teeth whitening</a
+            >, braces, and dental implants. Plus, they have a kid-friendly
+            office that is sure to make your child feel comfortable.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=13089403868963880917"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2938.786742482476!2d-83.2224896845374!3d42.55982097917401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb5a6e777db373fd5!2sBuscemi%20Family%20Dentistry!5e0!3m2!1sen!2sph!4v1649750632964!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Family%20Dentistry%20Bloomfield%20Hills,%20MI</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2938.786742482476!2d-83.2224896845374!3d42.55982097917401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb5a6e777db373fd5!2sBuscemi%20Family%20Dentistry!5e0!3m2!1sen!2sph!4v1649750632964!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Family%20Dentistry%20Bloomfield%20Hills,%20MI</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g42001-Activities-Bloomfield_Hills_Michigan.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g42001-Activities-Bloomfield_Hills_Michigan.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.fox2detroit.com/tag/us/mi/oakland-county/bloomfield-hills" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.fox2detroit.com/tag/us/mi/oakland-county/bloomfield-hills"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/buscemifamilydentistry-03-22/"
+            >https://rank-fortress-digital-agency.github.io/buscemifamilydentistry-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://buscemifamilydentistry-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://buscemifamilydentistry-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://jade-gnome-d54ceb.netlify.app/"
+            >https://jade-gnome-d54ceb.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/family-dentistry-bloomfield-hi/family-dentistry-bloomfield-hills-michigan"
+            >https://sites.google.com/view/family-dentistry-bloomfield-hi/family-dentistry-bloomfield-hills-michigan</a
+          >
+        </section>
+      </div>
 
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.facebook.com/Buscemi-Family-Dentistry-116861755000593/"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=13089403868963880917"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCZJ42m-uzvj3KEJzST-CBEg"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a
+                href="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website"
+                >Main</a
+              >
+            </li>
+            <li>
+              <a href="https://g.page/buscemifamilydentistry?share">Maps</a>
+            </li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/Buscemi-Family-Dentistry-116861755000593/">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=13089403868963880917">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCZJ42m-uzvj3KEJzST-CBEg">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://buscemifamilydentistry.com/?utm_source=GMB&utm_medium=Website">Main</a></li>
-          <li><a href="https://g.page/buscemifamilydentistry?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
